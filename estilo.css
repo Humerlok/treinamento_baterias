@@ -1,0 +1,193 @@
+body{
+    background-image: linear-gradient(to bottom,  #0288d1,  #0276b4);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+header{
+    background-color: rgba(255, 255, 255, 0.753);
+    padding: 6px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+h1, h2, h3, p, li{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+    color: #2563eb;
+}
+
+h3{
+    text-align: left;
+}
+
+p, li{
+    font-size: medium;
+    color: black;
+}
+
+p{
+    text-align: justify;
+}
+
+summary{
+    font-size: medium;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(135deg, #2563eb, #1e4bb5);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 23px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+summary:hover {
+    background-color: #1e4bb5;
+    transform: translateY(-2px);
+}
+
+details{
+    align-self: center;
+    width: 90%;
+    margin: 10px;
+}
+
+details[open] p {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+caption{
+    margin-top: 10px;
+    font-style: oblique;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button{
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0px;
+    margin: 10px;
+    color: azure;
+    background-color: #2563eb;
+    font-size: medium;
+}
+
+button:hover{
+    transform: scale(105%);
+    background-color: #60a5fa;
+}
+
+button:active{
+    background-color:  #1e40af;
+}
+
+table{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+    font-size: medium;
+    color: black;
+    width: 50%;
+    border-collapse: collapse;
+}
+
+table, th, td{
+    border: 1px solid black;
+}
+
+th, td{
+    padding: 8px;
+}
+
+table.erros{
+    width: 720px;
+    text-align: left;
+}
+
+img{
+    margin: 32px;
+    align-self: center;
+    justify-self: center;
+    border-radius: 10px;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+img.display{
+    margin: 0;
+    width: 200px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0);
+}
+
+
+
+.caixa{
+    background-color: white;
+    padding: 60px;
+    margin: 23px;
+    width: 720px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+    border-radius: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.th3{
+    text-align: left;
+    width: 600px;
+}
+
+.indice{
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.btindice{
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 6px;
+    font-size: small;
+}
+
+
+
+#dlv1, #dlv2{
+    display: none;
+}
+
+#tituloPrincipal{
+    font-size: 36pt;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+#ind{
+    text-align: center;
+}
+
+#logo{
+    width: 600px;
+    margin: 32px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0);
+}
