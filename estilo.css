@@ -1,62 +1,171 @@
-body{
-    background-image: linear-gradient(to bottom,  #0288d1,  #0276b4);
+/* ====================================
+   CSS VARIABLES & ROOT CONFIGURATION
+   ==================================== */
+:root {
+    /* Font size base for rem calculations (1rem = 16px by default) */
+    font-size: 16px;
+
+    /* Color palette */
+    --color-primary: #2563eb;
+    --color-primary-dark: #1e4bb5;
+    --color-primary-darker: #1e40af;
+    --color-primary-light: #60a5fa;
+    --color-white: #ffffff;
+    --color-white-transparent: rgba(255, 255, 255, 0.753);
+    --color-black: #000000;
+    --color-azure: azure;
+    --color-gradient-start: #0288d1;
+    --color-gradient-end: #0276b4;
+
+    /* Spacing */
+    --spacing-xs: 0.375rem;
+    /* 6px */
+    --spacing-sm: 0.625rem;
+    /* 10px */
+    --spacing-md: 1.4375rem;
+    /* 23px */
+    --spacing-lg: 2rem;
+    /* 32px */
+    --spacing-xl: 3.75rem;
+    /* 60px */
+
+    /* Border radius */
+    --radius-sm: 0.375rem;
+    /* 6px */
+    --radius-md: 0.625rem;
+    /* 10px */
+    --radius-lg: 1.25rem;
+    /* 20px */
+    --radius-xl: 1.4375rem;
+    /* 23px */
+
+    /* Shadows */
+    --shadow-default: 0 0 2.5rem rgba(0, 0, 0, 0.4);
+    --shadow-image: 0.375rem 0.375rem 0.75rem rgba(0, 0, 0, 0.4);
+    --shadow-button: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+
+    /* Max widths */
+    --max-width-content: 45rem;
+    /* 720px */
+    --max-width-heading: 37.5rem;
+    /* 600px */
+}
+
+/* ====================================
+   GLOBAL STYLES
+   ==================================== */
+body {
+    background-image: linear-gradient(to bottom, var(--color-gradient-start), var(--color-gradient-end));
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 6.25rem;
+    /* 100px */
+    min-height: 100vh;
 }
-header{
-    background-color: rgba(255, 255, 255, 0.753);
-    padding: 6px;
+
+/* ====================================
+   HEADER & NAVIGATION
+   ==================================== */
+header {
+    background-color: var(--color-white-transparent);
+    padding: var(--spacing-xs);
     text-align: center;
     width: 100%;
     position: fixed;
     top: 0;
     z-index: 100;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-default);
 }
 
-h1, h2, h3, p, li{
+.indice {
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.btindice {
+    width: auto;
+    height: auto;
+    padding: var(--spacing-sm);
+    margin: 0.1875rem;
+    /* 3px */
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    /* small */
+}
+
+/* ====================================
+   TYPOGRAPHY
+   ==================================== */
+h1,
+h2,
+h3,
+p,
+li {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
-    color: #2563eb;
+    color: var(--color-primary);
 }
 
-h3{
+h3 {
     text-align: left;
 }
 
-p, li{
-    font-size: medium;
-    color: black;
+p,
+li {
+    font-size: 1rem;
+    /* medium */
+    color: var(--color-black);
 }
 
-p{
+p {
     text-align: justify;
 }
 
-summary{
-    font-size: medium;
+#tituloPrincipal {
+    font-size: 2.25rem;
+    /* 36pt */
+    color: var(--color-white);
+    text-shadow: 0.1875rem 0.1875rem 0.375rem rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+caption {
+    margin-top: var(--spacing-sm);
+    font-style: oblique;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* ====================================
+   INTERACTIVE ELEMENTS
+   ==================================== */
+summary {
+    font-size: 1rem;
+    /* medium */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: linear-gradient(135deg, #2563eb, #1e4bb5);
-    color: white;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: var(--color-white);
     border: none;
-    padding: 10px;
-    border-radius: 23px;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-xl);
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-button);
 }
 
 summary:hover {
-    background-color: #1e4bb5;
-    transform: translateY(-2px);
+    background-color: var(--color-primary-dark);
+    transform: translateY(-0.125rem);
 }
 
-details{
+details {
     align-self: center;
     width: 90%;
-    margin: 10px;
+    margin: var(--spacing-sm);
 }
 
 details[open] p {
@@ -66,128 +175,405 @@ details[open] p {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-0.625rem);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-caption{
-    margin-top: 10px;
-    font-style: oblique;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+/* ====================================
+   BUTTONS
+   ==================================== */
+button {
+    width: 6.25rem;
+    /* 100px */
+    height: 2.5rem;
+    /* 40px */
+    border-radius: var(--radius-lg);
+    border: 0;
+    margin: var(--spacing-sm);
+    color: var(--color-azure);
+    background-color: var(--color-primary);
+    font-size: 1rem;
+    /* medium */
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-button{
-    width: 100px;
-    height: 40px;
-    border-radius: 20px;
-    border: 0px;
-    margin: 10px;
-    color: azure;
-    background-color: #2563eb;
-    font-size: medium;
+button:hover {
+    transform: scale(1.05);
+    background-color: var(--color-primary-light);
 }
 
-button:hover{
-    transform: scale(105%);
-    background-color: #60a5fa;
+button:active {
+    background-color: var(--color-primary-darker);
 }
 
-button:active{
-    background-color:  #1e40af;
-}
-
-table{
+/* ====================================
+   TABLES
+   ==================================== */
+table {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
-    font-size: medium;
-    color: black;
-    width: 50%;
+    font-size: 1rem;
+    /* medium */
+    color: var(--color-black);
+    width: 100%;
+    max-width: 50%;
     border-collapse: collapse;
 }
 
-table, th, td{
-    border: 1px solid black;
+table,
+th,
+td {
+    border: 1px solid var(--color-black);
 }
 
-th, td{
-    padding: 8px;
+th,
+td {
+    padding: 0.5rem;
+    /* 8px */
 }
 
-table.erros{
-    width: 720px;
+table.erros {
+    width: 100%;
+    max-width: var(--max-width-content);
     text-align: left;
 }
 
-img{
-    margin: 32px;
+/* ====================================
+   ERROR GRID (Charging Problems)
+   ==================================== */
+.error-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: var(--max-width-content);
+    margin: 1rem 0;
+}
+
+.error-item {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.error-item:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.error-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    cursor: pointer;
+    list-style: none;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    transition: background-color 0.2s ease;
+    min-height: 140px;
+}
+
+.error-summary:hover {
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+}
+
+.error-summary::-webkit-details-marker {
+    display: none;
+}
+
+.error-image {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0.375rem;
+    transition: transform 0.2s ease;
+}
+
+.error-item:hover .error-image {
+    transform: scale(1.05);
+}
+
+.error-description {
+    padding: 1rem;
+    background: var(--color-white);
+    border-top: 2px solid var(--color-primary);
+    animation: slideDown 0.3s ease;
+}
+
+.error-description h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+    color: var(--color-primary);
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.error-description p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: #334155;
+    text-align: left;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ====================================
+   IMAGES
+   ==================================== */
+img {
+    margin: var(--spacing-lg);
     align-self: center;
     justify-self: center;
-    border-radius: 10px;
-    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-image);
+    max-width: 100%;
+    height: auto;
 }
 
-img.display{
+img.display {
     margin: 0;
-    width: 200px;
-    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0);
+    width: 12.5rem;
+    /* 200px */
+    box-shadow: none;
 }
 
+#logo {
+    width: 100%;
+    max-width: 37.5rem;
+    /* 600px */
+    margin: var(--spacing-lg);
+    box-shadow: none;
+}
 
-
-.caixa{
-    background-color: white;
-    padding: 60px;
-    margin: 23px;
-    width: 720px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
-    border-radius: 23px;
+/* ====================================
+   LAYOUT CONTAINERS
+   ==================================== */
+.caixa {
+    background-color: var(--color-white);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-md);
+    width: 90%;
+    max-width: var(--max-width-content);
+    box-shadow: var(--shadow-default);
+    border-radius: var(--radius-xl);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.th3{
+.th3 {
     text-align: left;
-    width: 600px;
+    width: 100%;
+    max-width: var(--max-width-heading);
 }
 
-.indice{
-    height: auto;
-    align-items: center;
-    justify-content: center;
-}
-
-.btindice{
-    width: auto;
-    height: auto;
-    padding: 10px;
-    margin: 3px;
-    border-radius: 6px;
-    font-size: small;
-}
-
-
-
-#dlv1, #dlv2{
+/* ====================================
+   UTILITY CLASSES
+   ==================================== */
+#dlv1,
+#dlv2 {
     display: none;
 }
 
-#tituloPrincipal{
-    font-size: 36pt;
-    color: #ffffff;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-}
-
-#ind{
+#ind {
     text-align: center;
 }
 
-#logo{
-    width: 600px;
-    margin: 32px;
-    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0);
+/* ====================================
+   RESPONSIVE DESIGN - TABLETS
+   ==================================== */
+@media screen and (max-width: 768px) {
+    :root {
+        font-size: 15px;
+    }
+
+    body {
+        margin-top: 8rem;
+    }
+
+    .caixa {
+        padding: 2rem;
+        margin: 1rem;
+        width: 95%;
+    }
+
+    table {
+        max-width: 100%;
+        font-size: 0.875rem;
+    }
+
+    img {
+        margin: 1rem;
+    }
+
+    #tituloPrincipal {
+        font-size: 1.75rem;
+    }
+
+    .btindice {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+    }
+
+    .error-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+    }
+
+    .error-summary {
+        min-height: 120px;
+        padding: 1rem;
+    }
+
+    .error-image {
+        max-width: 200px;
+    }
+}
+
+/* ====================================
+   RESPONSIVE DESIGN - MOBILE
+   ==================================== */
+@media screen and (max-width: 480px) {
+    :root {
+        font-size: 14px;
+    }
+
+    body {
+        margin-top: 10rem;
+    }
+
+    header {
+        padding: 0.5rem;
+    }
+
+    .indice {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.5rem;
+    }
+
+    .btindice {
+        width: 90%;
+        font-size: 0.875rem;
+        padding: 0.625rem;
+        margin: 0.125rem;
+    }
+
+    .caixa {
+        padding: 1.5rem;
+        margin: 0.75rem;
+        width: 95%;
+        border-radius: 1rem;
+    }
+
+    #tituloPrincipal {
+        font-size: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    #logo {
+        max-width: 90%;
+        margin: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.125rem;
+    }
+
+    p,
+    li {
+        font-size: 0.9375rem;
+        text-align: left;
+    }
+
+    table {
+        font-size: 0.75rem;
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 0.375rem;
+    }
+
+    img {
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    img.display {
+        width: 8rem;
+    }
+
+    button {
+        width: 80%;
+        max-width: 15rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+
+    .th3 {
+        max-width: 100%;
+    }
+
+    details {
+        width: 95%;
+    }
+
+    summary {
+        font-size: 0.9375rem;
+        padding: 0.75rem;
+    }
+
+    .error-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .error-summary {
+        min-height: 160px;
+    }
+
+    .error-image {
+        max-width: 280px;
+    }
+
+    .error-description {
+        padding: 0.75rem;
+    }
+
+    .error-description h4 {
+        font-size: 0.9375rem;
+    }
+
+    .error-description p {
+        font-size: 0.875rem;
+    }
 }
